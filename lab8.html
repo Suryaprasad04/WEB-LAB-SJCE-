@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Student Marks Form</title>
+    <script type="text/javascript">
+        function validateAndCompute() {
+            var regNo = document.getElementById("regno").value.trim();
+            var subCode = document.getElementById("subcode").value.trim();
+            var m1 = parseInt(document.getElementById("mark1").value);
+            var m2 = parseInt(document.getElementById("mark2").value);
+            var m3 = parseInt(document.getElementById("mark3").value);
+
+            if (regNo === "" || subCode === "" || isNaN(m1) || isNaN(m2) || isNaN(m3)) {
+                alert("Please fill all fields correctly!");
+                return;
+            }
+
+            // Compute average of best 2 tests
+            var marks = [m1, m2, m3];
+            marks.sort(function(a, b) { return b - a; }); // Descending order
+            var avg = (marks[0] + marks[1]) / 2;
+
+            alert("Best 2 Marks: " + marks[0] + ", " + marks[1] + "\nAverage: " + avg);
+        }
+    </script>
+</head>
+<body>
+
+    <h2>Enter Student Details and Marks</h2>
+
+    <form>
+        Register Number: <input type="text" id="regno" /><br/><br/>
+        Subject Code: <input type="text" id="subcode" /><br/><br/>
+        Test 1 Marks: <input type="text" id="mark1" /><br/><br/>
+        Test 2 Marks: <input type="text" id="mark2" /><br/><br/>
+        Test 3 Marks: <input type="text" id="mark3" /><br/><br/>
+
+        <input type="button" value="Calculate Average" onclick="validateAndCompute()" />
+    </form>
+
+</body>
+</html>
