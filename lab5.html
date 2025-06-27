@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lab 5 - CSS Styling</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('background.jpg'); /* Replace with your image */
+            background-repeat: no-repeat;
+            background-size: cover;
+            padding: 20px;
+        }
+
+        h1 {
+            font-family: 'Georgia', serif;
+        }
+
+        p {
+            font-style: italic;
+        }
+
+        .font-demo {
+            font-weight: bold;
+            font-size: 18px;
+            font-family: 'Courier New', monospace;
+        }
+
+        a:link {
+            color: blue;
+        }
+
+        a:visited {
+            color: purple;
+        }
+
+        a:hover {
+            color: red;
+            text-decoration: underline;
+        }
+
+        a:active {
+            color: green;
+        }
+
+        #hiddenPara {
+            display: none;
+        }
+
+        #showBtn {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>CSS Font Styles and Background Demo</h1>
+    
+    <p>This is a paragraph with italic font style.</p>
+
+    <p class="font-demo">This text is bold, monospace, and larger in size.</p>
+
+    <p>Click the link: <a href="https://example.com" target="_blank">Visit Example</a></p>
+
+    <p id="hiddenPara">This paragraph was hidden but now visible!</p>
+    <button id="showBtn" onclick="document.getElementById('hiddenPara').style.display='block'">
+        Show Hidden Text
+    </button>
+
+</body>
+</html>
