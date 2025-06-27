@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prime Number Check</title>
+</head>
+<body>
+
+    <h2>Check if Number is Prime</h2>
+
+    <form method="post" action="check_prime.php">
+        <label>Enter a Number:</label>
+        <input type="number" name="num" required>
+        <input type="submit" value="Check">
+    </form>
+
+</body>
+</html>
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prime Result</title>
+</head>
+<body>
+
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $num = $_POST["num"];
+
+    if (!is_numeric($num) || $num < 2) {
+        echo "Please enter a number greater than 1.";
+    } else {
+        $isPrime = true;
+        for ($i = 2; $i <= sqrt($num); $i++) {
+            if ($num % $i == 0) {
+                $isPrime = false;
+                break;
+            }
+        }
+        if ($isPrime)
+            echo "$num is a Prime Number.";
+        else
+            echo "$num is Not a Prime Number.";
+    }
+}
+?>
+
+</body>
+</html>
