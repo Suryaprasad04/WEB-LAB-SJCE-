@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Registration Form</title>
+    <script>
+        function validateForm() {
+            let userId = document.getElementById("userid").value;
+            let name = document.getElementById("name").value;
+            let password = document.getElementById("password").value;
+            let email = document.getElementById("email").value;
+
+            // User ID: 5 to 12 characters
+            if (userId.length < 5 || userId.length > 12) {
+                alert("User ID must be 5 to 12 characters long");
+                return false;
+            }
+
+            // Name: only alphabets and ≥15 characters
+            let nameRegex = /^[A-Za-z\s]+$/;
+            if (!nameRegex.test(name) || name.length < 15) {
+                alert("Name must contain only letters and be at least 15 characters long");
+                return false;
+            }
+
+            // Password: ≥8 characters, one uppercase, one special char, alphanumeric
+            let passRegex = /^(?=.*[A-Z])(?=.*[!@#$%^&*])(?=.*[a-zA-Z0-9]).{8,}$/;
+            if (!passRegex.test(password)) {
+                alert("Password must be at least 8 characters, include an uppercase letter, a special character, and be alphanumeric");
+                return false;
+            }
+
+            // Email validation (simple version)
+            let emailRegex = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+            if (!emailRegex.test(email)) {
+                alert("Enter a valid email address");
+                return false;
+            }
+
+            alert("Registration Successful!");
+            return true;
+        }
+    </script>
+</head>
+<body>
+
+    <h2>Registration Page</h2>
+    <form onsubmit="return validateForm()">
+        <label>User ID:</label>
+        <input type="text" id="userid" /><br />
+
+        <label>Name:</label>
+        <input type="text" id="name" /><br />
+
+        <label>Password:</label>
+        <input type="password" id="password" /><br />
+
+        <label>Email:</label>
+        <input type="text" id="email" /><br /><br />
+
+        <input type="submit" value="Register" />
+    </form>
+
+</body>
+</html>
